@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #B8962E; --gold-light: #D4AF5A; --gold-pale: #F5EDD8;
+    --dark: #1A2035; --mid: #2C3A5A; --text: #2E2E2E;
+    --text-muted: #5A5A6A; --bg: #FAFAF7; --bg-section: #F2EFE6;
+    --white: #FFFFFF; --border: rgba(184,150,46,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Source Sans 3", sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100; background: var(--dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 68px; border-bottom: 2px solid var(--gold);
+  }
+  .nav-logo {
+    font-family: "Playfair Display", serif; font-size: 1.15rem;
+    color: var(--gold-light); font-weight: 700; text-decoration: none;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-toggle {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: var(--dark); border-top: 1px solid rgba(184,150,46,0.3);
+    border-bottom: 2px solid var(--gold); z-index: 99; padding: 1rem 0;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile li { list-style: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-mobile li:last-child { border-bottom: none; }
+  .nav-mobile a {
+    display: block; padding: 0.9rem 2rem; color: rgba(255,255,255,0.85);
+    text-decoration: none; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s, background 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(160deg, var(--dark) 0%, var(--mid) 100%);
+    padding: 4rem 3rem 3.5rem;
+    border-bottom: 2px solid var(--gold);
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: ""; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B8962E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+  .page-header-inner { position: relative; max-width: 800px; }
+  .page-badge {
+    display: inline-block; background: rgba(184,150,46,0.15);
+    border: 1px solid var(--gold); color: var(--gold-light);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1rem;
+  }
+  .page-header h1 {
+    font-family: "Playfair Display", serif; font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem;
+  }
+  .page-header h1 span { color: var(--gold-light); }
+  .page-subtitle { color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 860px; margin: 0 auto; padding: 4rem 3rem; }
+
+  .section-title {
+    font-family: "Playfair Display", serif; font-size: 1.4rem;
+    color: var(--dark); font-weight: 700; margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold);
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  p { color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; font-size: 1.02rem; }
+  p strong { color: var(--text); }
+  ul { margin: 0.5rem 0 1rem 1.5rem; }
+  ul li { color: var(--text-muted); margin-bottom: 0.4rem; font-size: 1.02rem; line-height: 1.75; }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Info Box */
+  .info-box {
+    background: var(--bg-section); border-left: 3px solid var(--gold);
+    padding: 1.25rem 1.5rem; border-radius: 0 4px 4px 0;
+    margin: 1.5rem 0; font-size: 0.98rem;
+  }
+  .info-box p { margin-bottom: 0.3rem; color: var(--text); }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Warning Box */
+  .warn-box {
+    background: #FEF9EC; border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem; border-radius: 0 4px 4px 0; margin: 1.5rem 0;
+  }
+  .warn-box p { color: #5a4a00; margin: 0; font-size: 0.95rem; }
+
+  /* Programm specific */
+  .prog-section {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 1.5rem;
+  }
+  .prog-num {
+    display: inline-block; background: var(--gold); color: var(--dark);
+    font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.6rem;
+    border-radius: 2px; margin-bottom: 0.75rem;
+  }
+  .prog-title {
+    font-family: "Playfair Display", serif; font-size: 1.25rem;
+    color: var(--dark); font-weight: 700; margin-bottom: 1rem;
+  }
+  .prog-section p { margin-bottom: 0.75rem; }
+  .prog-section p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 2rem 3rem; font-size: 0.85rem;
+    border-top: 1px solid rgba(184,150,46,0.2);
+  }
+  footer a { color: var(--gold-light); text-decoration: none; margin: 0 0.75rem; }
+  footer a:hover { text-decoration: underline; }
+  .footer-links { margin-top: 0.5rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.2rem; height: 60px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-mobile { top: 62px; }
+    .page-header { padding: 3rem 1.5rem 2.5rem; }
+    .content-wrap { padding: 2.5rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 0 1rem; height: 56px; }
+    .nav-logo { font-size: 1rem; }
+    .nav-mobile { top: 58px; }
+    .page-header { padding: 2.5rem 1rem 2rem; }
+    .content-wrap { padding: 2rem 1rem; }
+    .prog-section { padding: 1.25rem 1rem; }
+    footer { padding: 1.5rem 1rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    footer a { margin: 0; }
+  }
+  @media (hover: none) { }
+</style>
+</head>
+<body>
+<title>Wahlprogramm FBL 2021 | FBL Nörten-Hardenberg</title>
+<meta name="description" content="Wahlprogramm der Freien Bürgerliste Nörten-Hardenberg zur Kommunalwahl 2021.">
+<nav>
+  <a href="index.html" class="nav-logo">FBL Nörten-Hardenberg</a>
+  <ul class="nav-links">
+    <li><a href="index.html#kandidaten">Kandidaten</a></li>
+    <li><a href="index.html#programm">Programm</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="wahlprogramm.html" class="active">Wahlprogramm</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<ul class="nav-mobile" id="navMobile">
+  <li><a href="index.html#kandidaten" class="nav-mobile-link">Kandidaten</a></li>
+  <li><a href="index.html#programm" class="nav-mobile-link">Programm</a></li>
+  <li><a href="index.html#kontakt" class="nav-mobile-link">Kontakt</a></li>
+  <li><a href="wahlprogramm.html" class="nav-mobile-link">Wahlprogramm</a></li>
+</ul>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-badge">Kommunalwahl 2021</div>
+    <h1>Wahl<span>programm</span></h1>
+    <p class="page-subtitle">Freie Bürgerliste Nörten-Hardenberg · FBL</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p style="font-size:1.08rem; color: var(--text); margin-bottom: 2rem;">
+    <strong>FBL — für eine lebenswerte Gestaltung unserer Ortsteile und der Gemeinde.</strong><br>
+    Unabhängig von Parteiprogrammen gestalten wir sachlich und bürgernah mit.
+    Das sind unsere Themen und Ziele für Nörten-Hardenberg.
+  </p>
+
+  <div class="prog-section">
+    <div class="prog-num">1</div>
+    <div class="prog-title">Lebenswertes Wohnen und Arbeiten</div>
+    <p>Als Grundzentrum bietet Nörten-Hardenberg bereits heute alle wichtigen Versorgungs-
+    und Infrastrukturleistungen. Trotzdem gibt es noch deutlichen Nachholbedarf.
+    Eine <strong>schnelle Internetanbindung ist dringend für alle Ortsteile herzustellen</strong>.
+    Die geplanten Änderungen beim Straßenverkehr (Kreisel B3/B446 sowie Kreisel am
+    evangelischen Friedhof) werden wir mit vorheriger Bürgerbeteiligung umsetzen.</p>
+    <p>Neue Wohngebiete sollen umweltverträglich mit landschaftspflegerischen Begleitmaßnahmen
+    gestaltet werden. Vorrangig sind neben familiengerechten Wohnformen auch
+    Mehr-Generationen-Einrichtungen und altersgerechtes Wohnen. Wir setzen uns für eine
+    Alters- und Pflegeeinrichtung im Zentrum von Alt-Nörten ein.</p>
+    <p>Bauen und Wohnen muss bezahlbar bleiben. Für Aus- und Einpendler wollen wir die
+    Verbindungen sowohl auf den Straßen wie durch den ÖPNV kontinuierlich verbessern.
+    Für den Bahnhofstandort benötigen wir neben behindertengerechtem Zugang und
+    Neugestaltung der Bahnhofstraße zusätzliche nahegelegene Parkmöglichkeiten.
+    Schwerlastverkehr ist aus den Ortskernen herauszuhalten.</p>
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-num">2</div>
+    <div class="prog-title">Schulen, Hort und Kitas verbessern</div>
+    <p>Steigende Kinderzahlen erfreuen uns. Die vorhandenen Einrichtungen müssen weiter
+    verbessert und die Betreuung durch qualifiziertes Personal dem steigenden Bedarf
+    weiterhin angepasst werden. Die Grundschulstandorte in Nörten und Angerstein müssen
+    diesen Veränderungen gerecht werden und als Ganztagsangebote weiter ausgebaut werden.</p>
+    <p>Bedauerlich ist nach wie vor die verlorene Selbstständigkeit unserer weiterführenden
+    Schule an der Bünte. Dieser Standort muss im Verbund mit Moringen und Hardegsen
+    deutlich gestärkt werden. Auf Grund unserer steigenden Schülerzahlen halten wir die
+    Forderung zur Rückerlangung der Selbstständigkeit aufrecht.</p>
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-num">3</div>
+    <div class="prog-title">Klima-, Umwelt- und Naturschutz, regenerative Energieversorgung</div>
+    <p>Der Klimawandel und seine Folgen werden auch uns als Gemeinde treffen. Im Nörtener
+    Wald und im Landschaftsschutzgebiet am Langfast sind die Schäden bereits deutlich
+    erkennbar. Der Wiederaufbau der Wälder soll klimastabil erfolgen. Unsere
+    Forstgenossenschaften und Waldbesitzer brauchen dafür Unterstützung.</p>
+    <p>Anstelle der geplanten ortsnahen Windenergiestandorte im Leinetal, am Papenberg
+    und in Parensen sowie Wolbrechtshausen fordern wir die Untersuchung stark geschädigter
+    ortsferner Waldstandorte. Eine Gefährdung unserer ortsnahen Schutzgebiete an der Leine
+    (Leineinsel, Auenwald und Leinemaäander) lehnen wir ab.</p>
+    <p>Mehr Photovoltaik auf unseren Gebäuden und als Freiflächenanlagen stärkt unsere
+    ortsnahe Stromversorgung. Mehr grüne Hausnummern in Nörten sind unser Ziel.</p>
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-num">4</div>
+    <div class="prog-title">Sicherheit, Feuerwehr, Wasser und Abwasser</div>
+    <p>Die Präsenz von Personal in unserer Nörtener Polizeistation sorgt für die Sicherheit
+    unserer Bürgerinnen und Bürger. Hierauf legen wir großen Wert und werden uns für
+    diesen Standort stark machen.</p>
+    <p>Die Zusammenarbeit mit unserem Ordnungsamt und den örtlichen Feuerwehren
+    funktioniert. Für unseren Teil werden wir die Feuerwehrstandorte bedarfsgerecht
+    aufstellen. Dazu gehört auch <strong>der Neubau der Stützpunkte Nörten-Angerstein</strong>
+    am geplanten Standort im Rodetal.</p>
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-num">5</div>
+    <div class="prog-title">Vereine, Erholung, Freizeit, Kultur und Sport</div>
+    <p>Unsere Ortsteile haben ein vielfältiges Vereinsleben. Die ehrenamtlich tätigen
+    Bürgerinnen und Bürger leisten einen wertvollen Beitrag für den sozialen Zusammenhalt
+    vor Ort. Diese wertvolle Gemeinschaft wollen wir stärken und fördern.</p>
+    <p>Dorfgemeinschaftseinrichtungen und Vereinsheime sollen erhalten und mit Leben gefüllt
+    werden. Neue Formen der Organisation des sozialen Lebens — wie die Hallenbad-Genossenschaft —
+    sind beispielhaft und dringend zu fördern.</p>
+    <p>Ein dauerhaft pflegeleichter und <strong>ganzjährig nutzbarer Sportplatz im Rodetal</strong>
+    kann entsprechend den Turnhallen und dem Hallenbad gemeinsam entwickelt werden.
+    Die Anbindung unserer örtlichen und überregionalen Fahrradwege muss verbessert werden.
+    Der traditionelle Weihnachtsmarkt auf dem Marktplatz ist zu erhalten.</p>
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-num">6</div>
+    <div class="prog-title">Haushalt und Finanzen</div>
+    <p>Wer nachhaltig fördern möchte, braucht solide Finanzen und gesicherte Einnahmequellen.
+    Hier ist Nörten im Vergleich zu seinen Nachbargemeinden hervorragend aufgestellt.
+    Diesen Vorteil dürfen wir nicht leichtfertig riskieren.</p>
+    <p>Unsere geschaffenen Rahmenbedingungen mit gleichbleibenden Steuersätzen und guter
+    Infrastruktur haben zu höheren Steuereinnahmen beigetragen. Erhöhungen der Steuersätze
+    für unsere Bürgerinnen und Bürger, die Wirtschaft und die Arbeitsplätze sind grundsätzlich
+    nicht erforderlich. <strong>Grund- und Gewerbesteuer bleiben stabil.</strong></p>
+  </div>
+
+  <div class="info-box" style="margin-top: 2.5rem; text-align: center;">
+    <p><strong>FBL — für eine lebenswerte Gestaltung unserer Ortsteile und der Gemeinde.</strong></p>
+    <p>Ihre Kandidatinnen und Kandidaten der Freien Bürgerliste Nörten-Hardenberg</p>
+  </div>
+
+</div>
+<footer>
+  <p>© 2026 Freie Bürgerliste Nörten-Hardenberg (FBL) · #kompetent. Was sonst!</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="wahlprogramm.html">Wahlprogramm</a>
+  </div>
+</footer><script>
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+  mobileLinks.forEach(link => link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-label', 'Menü öffnen');
+  }));
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #B8962E; --gold-light: #D4AF5A; --gold-pale: #F5EDD8;
+    --dark: #1A2035; --mid: #2C3A5A; --text: #2E2E2E;
+    --text-muted: #5A5A6A; --bg: #FAFAF7; --bg-section: #F2EFE6;
+    --white: #FFFFFF; --border: rgba(184,150,46,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Source Sans 3", sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100; background: var(--dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 68px; border-bottom: 2px solid var(--gold);
+  }
+  .nav-logo {
+    font-family: "Playfair Display", serif; font-size: 1.15rem;
+    color: var(--gold-light); font-weight: 700; text-decoration: none;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-toggle {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: var(--dark); border-top: 1px solid rgba(184,150,46,0.3);
+    border-bottom: 2px solid var(--gold); z-index: 99; padding: 1rem 0;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile li { list-style: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-mobile li:last-child { border-bottom: none; }
+  .nav-mobile a {
+    display: block; padding: 0.9rem 2rem; color: rgba(255,255,255,0.85);
+    text-decoration: none; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s, background 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(160deg, var(--dark) 0%, var(--mid) 100%);
+    padding: 4rem 3rem 3.5rem;
+    border-bottom: 2px solid var(--gold);
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: ""; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B8962E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+  .page-header-inner { position: relative; max-width: 800px; }
+  .page-badge {
+    display: inline-block; background: rgba(184,150,46,0.15);
+    border: 1px solid var(--gold); color: var(--gold-light);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1rem;
+  }
+  .page-header h1 {
+    font-family: "Playfair Display", serif; font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem;
+  }
+  .page-header h1 span { color: var(--gold-light); }
+  .page-subtitle { color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 860px; margin: 0 auto; padding: 4rem 3rem; }
+
+  .section-title {
+    font-family: "Playfair Display", serif; font-size: 1.4rem;
+    color: var(--dark); font-weight: 700; margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold);
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  p { color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; font-size: 1.02rem; }
+  p strong { color: var(--text); }
+  ul { margin: 0.5rem 0 1rem 1.5rem; }
+  ul li { color: var(--text-muted); margin-bottom: 0.4rem; font-size: 1.02rem; line-height: 1.75; }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Info Box */
+  .info-box {
+    background: var(--bg-section); border-left: 3px solid var(--gold);
+    padding: 1.25rem 1.5rem; border-radius: 0 4px 4px 0;
+    margin: 1.5rem 0; font-size: 0.98rem;
+  }
+  .info-box p { margin-bottom: 0.3rem; color: var(--text); }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* Warning Box */
+  .warn-box {
+    background: #FEF9EC; border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem; border-radius: 0 4px 4px 0; margin: 1.5rem 0;
+  }
+  .warn-box p { color: #5a4a00; margin: 0; font-size: 0.95rem; }
+
+  /* Programm specific */
+  .prog-section {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 1.5rem;
+  }
+  .prog-num {
+    display: inline-block; background: var(--gold); color: var(--dark);
+    font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.6rem;
+    border-radius: 2px; margin-bottom: 0.75rem;
+  }
+  .prog-title {
+    font-family: "Playfair Display", serif; font-size: 1.25rem;
+    color: var(--dark); font-weight: 700; margin-bottom: 1rem;
+  }
+  .prog-section p { margin-bottom: 0.75rem; }
+  .prog-section p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 2rem 3rem; font-size: 0.85rem;
+    border-top: 1px solid rgba(184,150,46,0.2);
+  }
+  footer a { color: var(--gold-light); text-decoration: none; margin: 0 0.75rem; }
+  footer a:hover { text-decoration: underline; }
+  .footer-links { margin-top: 0.5rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.2rem; height: 60px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-mobile { top: 62px; }
+    .page-header { padding: 3rem 1.5rem 2.5rem; }
+    .content-wrap { padding: 2.5rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 0 1rem; height: 56px; }
+    .nav-logo { font-size: 1rem; }
+    .nav-mobile { top: 58px; }
+    .page-header { padding: 2.5rem 1rem 2rem; }
+    .content-wrap { padding: 2rem 1rem; }
+    .prog-section { padding: 1.25rem 1rem; }
+    footer { padding: 1.5rem 1rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    footer a { margin: 0; }
+  }
+  @media (hover: none) { }
+</style>
+</head>
+<body>
+<title>Datenschutz | FBL Nörten-Hardenberg</title>
+<meta name="description" content="Datenschutzerklärung der Freien Bürgerliste Nörten-Hardenberg gemäß DSGVO.">
+<nav>
+  <a href="index.html" class="nav-logo">FBL Nörten-Hardenberg</a>
+  <ul class="nav-links">
+    <li><a href="index.html#kandidaten">Kandidaten</a></li>
+    <li><a href="index.html#programm">Programm</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="wahlprogramm.html" >Wahlprogramm</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<ul class="nav-mobile" id="navMobile">
+  <li><a href="index.html#kandidaten" class="nav-mobile-link">Kandidaten</a></li>
+  <li><a href="index.html#programm" class="nav-mobile-link">Programm</a></li>
+  <li><a href="index.html#kontakt" class="nav-mobile-link">Kontakt</a></li>
+  <li><a href="wahlprogramm.html" class="nav-mobile-link">Wahlprogramm</a></li>
+</ul>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-badge">Rechtliches</div>
+    <h1>Datenschutz<span>erklärung</span></h1>
+    <p class="page-subtitle">Gemäß DSGVO · Stand: Juni 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="warn-box">
+    <p>Diese Datenschutzerklärung gilt für die Websites <strong>fbl-nh.de</strong> und
+    <strong>fbl-noerten-hardenberg.de</strong>. Die Seiten setzen keine Tracking-Cookies
+    und keine Analyse-Tools ein.</p>
+  </div>
+
+  <h2 class="section-title">§ 1 Verantwortlicher und Datenschutzbeauftragte</h2>
+  <p><strong>(1) Verantwortlicher</strong> für die Verarbeitung personenbezogener Daten
+  gemäß Art. 4 Ziff. 7 EU-DSGVO ist:</p>
+  <div class="info-box">
+    <p><strong>Freie Bürgerliste Nörten-Hardenberg (FBL)</strong></p>
+    <p>vertreten durch Dr. Christian Eberl</p>
+    <p>Am Habichtsfang 51 · 37176 Nörten-Hardenberg</p>
+    <p>E-Mail: <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a></p>
+  </div>
+  <p><strong>(2) Datenschutzbeauftragte:</strong> Martina Verhey —
+  erreichbar unter <a href="mailto:mverhey@fbl-nh.de">mverhey@fbl-nh.de</a>
+  oder Tel. 0160 90630424.</p>
+
+  <h2 class="section-title">§ 2 Erhebung personenbezogener Daten</h2>
+  <p><strong>(1)</strong> Beim Besuch unserer Website erheben wir — wenn Sie uns nicht
+  anderweitig Informationen übermitteln — nur die personenbezogenen Daten, die Ihr Browser
+  an unseren Server übermittelt. Diese Informationen werden temporär in einem sogenannten
+  Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis
+  zur automatisierten Löschung gespeichert:</p>
+  <ul>
+    <li>IP-Adresse</li>
+    <li>Datum und Uhrzeit der Anfrage</li>
+    <li>Zeitzonendifferenz zur koordinierten Weltzeit (UTC)</li>
+    <li>Browseranfrage (Methode, angefragte Ressource, Protokollversion)</li>
+    <li>Zugriffsstatus / HTTP-Statuscode</li>
+    <li>Übertragene Datenmenge</li>
+    <li>Zuvor besuchte Seite (Referrer), sofern vom Browser übermittelt</li>
+    <li>Browserkennung (Name, Version, Betriebssystem)</li>
+  </ul>
+  <p>Diese Daten werden erhoben, um Ihnen unsere Website anzuzeigen sowie Stabilität
+  und Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 Buchst. f DSGVO.</p>
+
+  <h2 class="section-title">§ 3 Cookies</h2>
+  <p>Diese Website setzt <strong>keine Cookies</strong> ein. Es werden keine Tracking-,
+  Analyse- oder Marketingdienste Dritter verwendet. Es ist kein Cookie-Consent erforderlich.</p>
+
+  <h2 class="section-title">§ 4 Betroffenenrechte</h2>
+  <p><strong>(1)</strong> Sie haben gegenüber uns folgende Rechte hinsichtlich der
+  Sie betreffenden personenbezogenen Daten:</p>
+  <ul>
+    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+  </ul>
+  <p><strong>(2)</strong> Sie haben zudem das Recht, Ihre einmal erteilte Einwilligung
+  jederzeit zu widerrufen (Art. 7 Abs. 3 DSGVO). Ihren Widerruf richten Sie bitte an:
+  <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a>.</p>
+  <p>Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren
+  (Art. 77 DSGVO). Die zuständige Aufsichtsbehörde in Niedersachsen ist der
+  <a href="https://www.lfd.niedersachsen.de" target="_blank" rel="noopener">
+  Landesbeauftragte für den Datenschutz Niedersachsen</a>.</p>
+
+  <h2 class="section-title">§ 5 Widerspruchsrecht</h2>
+  <p><strong>(1)</strong> Soweit wir die Verarbeitung Ihrer personenbezogenen Daten auf
+  berechtigte Interessen stützen (Art. 6 Abs. 1 Buchst. f DSGVO), können Sie Widerspruch
+  gegen die Verarbeitung einlegen. Bei Ausübung eines solchen Widerspruchs bitten wir um
+  Darlegung der Gründe.</p>
+  <p><strong>(2)</strong> Sie können der Verarbeitung Ihrer personenbezogenen Daten für
+  Zwecke der Werbung und Datenanalyse jederzeit widersprechen.</p>
+  <p><strong>(3)</strong> Ihren Widerspruch richten Sie bitte an den Verantwortlichen:
+  <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a>.</p>
+
+  <h2 class="section-title">§ 6 Aktualität dieser Datenschutzerklärung</h2>
+  <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong>Juni 2026</strong>.
+  Durch die Weiterentwicklung unserer Website kann es notwendig werden, diese Erklärung
+  zu aktualisieren. Die jeweils aktuelle Version finden Sie stets auf dieser Seite.</p>
+
+</div>
+<footer>
+  <p>© 2026 Freie Bürgerliste Nörten-Hardenberg (FBL) · #kompetent. Was sonst!</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="wahlprogramm.html">Wahlprogramm</a>
+  </div>
+</footer><script>
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+  mobileLinks.forEach(link => link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-label', 'Menü öffnen');
+  }));
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
