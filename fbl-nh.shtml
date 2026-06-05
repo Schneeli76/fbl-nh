@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Freie Bürgerliste Nörten-Hardenberg – kompetent, bürgernah, unabhängig. Ihre Kandidatinnen und Kandidaten für Gemeinde- und Ortsrat.">
+<title>FBL Nörten-Hardenberg | #kompetent. Was sonst!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8962E;
+    --gold-light: #D4AF5A;
+    --gold-pale: #F5EDD8;
+    --dark: #1A2035;
+    --mid: #2C3A5A;
+    --text: #2E2E2E;
+    --text-muted: #5A5A6A;
+    --bg: #FAFAF7;
+    --bg-section: #F2EFE6;
+    --white: #FFFFFF;
+    --border: rgba(184,150,46,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 68px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HAMBURGER ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu overlay */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0; right: 0;
+    background: var(--dark);
+    border-top: 1px solid rgba(184,150,46,0.3);
+    border-bottom: 2px solid var(--gold);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile li {
+    list-style: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-mobile li:last-child { border-bottom: none; }
+
+  .nav-mobile a {
+    display: block;
+    padding: 0.9rem 2rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-mobile a:hover {
+    color: var(--gold-light);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--dark) 0%, var(--mid) 100%);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 3rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8962E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 800px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(184,150,46,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 span {
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+  }
+
+  .hero-body {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.05rem;
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-sig {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-decor {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,150,46,0.2);
+    pointer-events: none;
+  }
+
+  .hero-decor::after {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,150,46,0.12);
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 5rem 3rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--dark);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* ── INTRO ── */
+  .intro { background: var(--bg-section); }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .intro-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    line-height: 1.85;
+  }
+
+  .values-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .values-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .values-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.6rem;
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  /* ── KANDIDATEN ── */
+  .kandidaten { background: var(--white); }
+
+  .kandidaten-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+  }
+
+  .kand-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .kand-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,32,53,0.12);
+  }
+
+  .kand-img-wrap {
+    width: 100%;
+    height: 260px;
+    background: var(--bg-section);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .kand-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .kand-card:hover .kand-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .kand-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.6;
+    letter-spacing: -0.02em;
+  }
+
+  .kand-body { padding: 1.5rem; }
+
+  .kand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--dark);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .kand-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .kand-text {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* ── PROGRAMM ── */
+  .programm { background: var(--dark); }
+
+  .programm .section-title { color: var(--white); }
+  .programm .section-label { color: var(--gold-light); }
+
+  .themen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .thema-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,46,0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .thema-card:hover { background: rgba(255,255,255,0.08); }
+
+  .thema-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(184,150,46,0.15);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .thema-title {
+    color: var(--gold-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .thema-text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  .prog-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.2rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* ── KONTAKT ── */
+  .kontakt { background: var(--bg-section); }
+
+  .kontakt-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .kontakt-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    transition: color 0.2s;
+    margin-top: 2rem;
+  }
+
+  .kontakt-email:hover { color: var(--dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2rem 3rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(184,150,46,0.2);
+  }
+
+  footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+    margin: 0 0.75rem;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links { margin-top: 0.5rem; }
+
+  /* ════════════════════════════════════════
+     RESPONSIVE — Mobile First
+     320px  Smartphone klein
+     480px  Smartphone groß
+     768px  Tablet
+     1024px Desktop
+     ════════════════════════════════════════ */
+
+  /* ── TABLET (bis 1024px) ── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 2rem; }
+    .nav-links { gap: 1.4rem; }
+    .hero { padding: 4rem 2rem; }
+    section { padding: 4rem 2rem; }
+    .intro-grid { gap: 2.5rem; }
+    .kandidaten-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .themen-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── TABLET SCHMAL / GROSSES SMARTPHONE (bis 768px) ── */
+  @media (max-width: 768px) {
+    /* Navigation */
+    nav { padding: 0 1.2rem; height: 60px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-mobile { top: 62px; }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 1.2rem 3.5rem;
+      min-height: auto;
+      align-items: flex-start;
+    }
+    .hero-decor { display: none; }
+    .hero-badge { font-size: 0.72rem; padding: 0.3rem 0.8rem; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 0.75rem; }
+    .hero-tagline { font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .hero-body { font-size: 0.98rem; margin-bottom: 1.5rem; line-height: 1.75; }
+    .hero-sig { font-size: 0.95rem; }
+
+    /* Sections */
+    section { padding: 3rem 1.2rem; }
+    .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+    /* Intro */
+    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* Kandidaten — 1 Spalte, kompaktere Karten */
+    .kandidaten-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .kand-img-wrap { height: 140px; }
+    .kand-initials { font-size: 2.8rem; }
+    .kand-body { padding: 1rem 1.2rem; }
+    .kand-name { font-size: 1.05rem; }
+    .kand-text { font-size: 0.9rem; }
+
+    /* Programm */
+    .themen-grid { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+
+    /* Kontakt */
+    .kontakt-inner { padding: 0 0.5rem; }
+    .kontakt-email { font-size: 1rem; }
+
+    /* Footer */
+    footer { padding: 1.5rem 1.2rem; font-size: 0.8rem; }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    footer a { margin: 0; }
+  }
+
+  /* ── SMARTPHONE (bis 480px) ── */
+  @media (max-width: 480px) {
+    /* Navigation */
+    nav { padding: 0 1rem; height: 56px; }
+    .nav-logo { font-size: 1rem; }
+    .nav-mobile { top: 58px; }
+
+    /* Hero */
+    .hero { padding: 2.5rem 1rem 3rem; }
+    .hero h1 { font-size: clamp(1.75rem, 9vw, 2.5rem); line-height: 1.15; }
+    .hero-tagline { font-size: 0.95rem; }
+    .hero-body { font-size: 0.93rem; }
+
+    /* Sections */
+    section { padding: 2.5rem 1rem; }
+
+    /* Kandidaten — kompakte horizontale Karte auf sehr kleinen Geräten */
+    .kand-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+    }
+    .kand-img-wrap {
+      height: 100%;
+      min-height: 100px;
+      border-radius: 0;
+    }
+    .kand-initials { font-size: 2rem; }
+    .kand-body { padding: 0.9rem 1rem; }
+    .kand-name { font-size: 0.98rem; }
+    .kand-role { font-size: 0.7rem; margin-bottom: 0.5rem; }
+    .kand-text { font-size: 0.85rem; line-height: 1.6; }
+
+    /* Programm — 1 Spalte auf kleinen Handys */
+    .themen-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+    .thema-card { padding: 1.1rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .thema-icon { flex-shrink: 0; margin-bottom: 0; width: 32px; height: 32px; font-size: 1rem; }
+    .thema-content { flex: 1; }
+
+    /* Intro Schwerpunkte */
+    .values-list li { font-size: 0.93rem; }
+
+    /* Button */
+    .btn-gold {
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  /* ── SEHR KLEINES SMARTPHONE (bis 360px) ── */
+  @media (max-width: 360px) {
+    .nav-logo { font-size: 0.9rem; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-badge { display: none; }
+    .kand-card { grid-template-columns: 70px 1fr; }
+    .kand-initials { font-size: 1.7rem; }
+  }
+
+  /* ── TOUCH-GERÄTE: Hover-Effekte deaktivieren ── */
+  @media (hover: none) {
+    .kand-card:hover { transform: none; box-shadow: none; }
+    .thema-card:hover { background: rgba(255,255,255,0.05); }
+    .btn-gold:hover { background: var(--gold); }
+    .kontakt-email:hover { color: var(--gold); }
+  }
+
+  /* ── LANDSCAPE SMARTPHONE ── */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .hero { min-height: auto; padding: 2rem 2rem; }
+    .hero h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+    .kand-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+    }
+    .kand-img-wrap { height: 100%; min-height: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">FBL Nörten-Hardenberg</a>
+
+  <!-- Desktop Links -->
+  <ul class="nav-links">
+    <li><a href="#kandidaten">Kandidaten</a></li>
+    <li><a href="#programm">Programm</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="https://fbl-nh.de/477-2/" target="_blank">Wahlprogramm</a></li>
+  </ul>
+
+  <!-- Hamburger Button (mobile only) -->
+  <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<ul class="nav-mobile" id="navMobile">
+  <li><a href="#kandidaten" class="nav-mobile-link">Kandidaten</a></li>
+  <li><a href="#programm" class="nav-mobile-link">Programm</a></li>
+  <li><a href="#kontakt" class="nav-mobile-link">Kontakt</a></li>
+  <li><a href="https://fbl-nh.de/477-2/" target="_blank">Wahlprogramm</a></li>
+</ul>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-decor"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Freie Bürgerliste · Kommunalpolitik</div>
+    <h1>
+      Für ein lebenswertes
+      <span>Nörten-Hardenberg.</span>
+    </h1>
+    <p class="hero-tagline">#kompetent. Was sonst!</p>
+    <p class="hero-body">
+      Über Parteigrenzen hinweg bitten wir Sie, liebe Bürgerinnen und Bürger,
+      um Ihre Stimme für eine lebenswerte Zukunft unserer Gemeinde und ihrer Ortsteile.
+      Unabhängig von Parteiprogrammen gestalten wir — orientiert an den
+      Bedürfnissen und Möglichkeiten der Menschen vor Ort — sachlich und bürgernah mit.
+    </p>
+    <p class="hero-sig">Ihre Kandidatinnen und Kandidaten der FBL Nörten-Hardenberg</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="ueber">
+  <div class="intro-grid">
+    <div class="intro-left">
+      <div class="section-label">Über uns</div>
+      <h2 class="section-title">Demokratisch. Sachorientiert. Engagiert.</h2>
+      <div class="divider"></div>
+      <div class="intro-text">
+        <p>
+          In der Kommunalpolitik werden unmittelbare Entscheidungen für unsere
+          Lebensverhältnisse vor Ort getroffen. Unabhängig von Parteiprogrammen wollen
+          wir diese Entscheidungen sachlich und bürgernah — orientiert an den Bedürfnissen
+          und Möglichkeiten der Ortsteile und unserer Gemeinde — mitgestalten.
+        </p>
+        <p>
+          Demokratische Diskussionen in den Räten und mit den Einwohnerinnen und Einwohnern
+          sind uns wichtig. Einiges wurde in den letzten Jahren auch nach umfangreichen
+          Diskussionen erreicht. Neuen Aufgaben wollen wir uns gemeinsam mit Ihnen stellen.
+        </p>
+        <p>— Dr. Christian Eberl</p>
+      </div>
+    </div>
+    <div class="intro-right">
+      <div class="section-label">Unsere Schwerpunkte</div>
+      <ul class="values-list">
+        <li>Klimaschutz und alternative Energiegewinnung im Einklang mit den Bürgerinnen und Bürgern</li>
+        <li>Bezahlbares Wohnen für Familien und Ältere</li>
+        <li>Sichere Schul- und Kita-Wege für alle Generationen</li>
+        <li>Stärkung des Vereinslebens und des Ehrenamts</li>
+        <li>Erhalt und Ausbau von Schulstandorten und Kindertagesstätten</li>
+        <li>Naherholung an der Leine und im Leinetal schützen</li>
+        <li>Barrierefreier Bahnhof und Ausbau von Fahrradwegen</li>
+        <li>Zukunftsweisendes Gewerbe und Glasfaserausbau</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KANDIDATEN -->
+<section class="kandidaten" id="kandidaten">
+  <div style="text-align:center; margin-bottom: 0.5rem;">
+    <div class="section-label" style="display:inline-block;">Unsere Kandidatinnen und Kandidaten</div>
+  </div>
+  <h2 class="section-title" style="text-align:center; max-width:600px; margin:0 auto 0.5rem;">Starke Stimmen für unsere Gemeinde</h2>
+  <div class="divider" style="margin: 0 auto 0;"></div>
+
+  <div class="kandidaten-grid">
+
+    <!-- Hartmut Ehmen -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/HartmutEhmen-scaled.jpg" alt="Foto von Hartmut Ehmen" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Hartmut Ehmen</div>
+        <div class="kand-role">Fraktionsvorsitzender seit 2019</div>
+        <p class="kand-text">
+          Hartmut Ehmen ist 65 Jahre alt, technischer Betriebsinspektor im Ruhestand und wohnhaft in Elvese.
+          Er ist seit 2016 Mitglied des Gemeinderats Nörten-Hardenberg und Ortsbürgermeister von Elvese.
+          Für ihn sind Klimaschutz, bezahlbares Wohnen und die Stabilität unserer Gemeinde zentrale Themen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Christian Nülsen -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/ChristianNuelsen-scaled.jpg" alt="Foto von Christian Nülsen" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Christian Nülsen</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg</div>
+        <p class="kand-text">
+          54 Jahre, gebürtiger Nörten-Hardenberger, verbeamteter Lokführer. Nach 10 Jahren im Ortsrat möchte er
+          weiterhin parteilos mitwirken. Heimat, Vereinsleben und der Erhalt des Naherholungsgebiets an der Leine
+          liegen ihm besonders am Herzen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Katharina Nülsen -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/KatharinaNuelsen-scaled.jpg" alt="Foto von Katharina Nülsen" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Katharina Nülsen</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg</div>
+        <p class="kand-text">
+          Das Wohl und die Zufriedenheit der Bürgerinnen und Bürger sind ihr sehr wichtig —
+          insbesondere das Sicherheitsgefühl und ein harmonisches Miteinander. Für Kinder
+          im Kindergarten-, Vorschul- und Schulalter setzt sie sich für altersgerechte
+          Veranstaltungen und kreative Projekte ein.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sabine Opolka -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/08/P8010021P8010021P8010021-scaled.jpg" alt="Foto von Sabine Opolka" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Sabine Opolka</div>
+        <div class="kand-role">Ortsbürgermeisterin 2016–2021</div>
+        <p class="kand-text">
+          Sie war von 2016 bis 2021 Ortsbürgermeisterin in Nörten-Hardenberg. Wichtig sind ihr
+          Kindertagesstätten, Schulen, das Jugendzentrum, bezahlbare Wohnungen sowie
+          die Seniorenbetreuung — und alles, was das Leben in Nörten-Hardenberg lebenswert macht.
+        </p>
+      </div>
+    </div>
+
+    <!-- Monica Eberl-Schneeberger -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/MonicaEberl-scaled.jpg" alt="Foto von Monica Eberl-Schneeberger" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Monica Eberl-Schneeberger</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg</div>
+        <p class="kand-text">
+          Monica Eberl-Schneeberger setzt sich für die Attraktivität und Lebensqualität unseres Ortes ein.
+          Den Weihnachtsmarkt, das Kreiselfest und die Vereine des Ortes unterstützt sie aktiv.
+          Die Verbesserung der Ortsstraßen, der Kinderspielplätze und der gemeindlichen Einrichtungen
+          liegt ihr besonders am Herzen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Andreas Tennstedt -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/AndreasTennstedt-scaled.jpg" alt="Foto von Andreas Tennstedt" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Andreas Tennstedt</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg</div>
+        <p class="kand-text">
+          Seit 2016 im Ortsrat. Sein besonderes Anliegen: Sicherheit für alle Bürgerinnen
+          und Bürger. Sichere Schul- und Kita-Wege für Kinder sowie Schutz älterer Mitbürgerinnen und Mitbürger
+          im Straßenverkehr — dafür steht er als Ansprechpartner zur Verfügung.
+        </p>
+      </div>
+    </div>
+
+    <!-- Carina Wunderlich -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/CarinaWunderlich-scaled.jpg" alt="Foto von Carina Wunderlich" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Carina Wunderlich</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg</div>
+        <p class="kand-text">
+          Carina Wunderlich ist selbstständige Ergotherapeutin aus Leidenschaft und kandidiert erstmals für den Ortsrat.
+          Ihr Motto: „Es ist schnell geschimpft, aber ohne Einsatz eben nicht
+          schnell gemacht!" Altersgerechtes Wohnen und Mehrgenerationeneinrichtungen
+          liegen ihr sehr am Herzen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Martina Verhey -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/MartinaVerhey-scaled.jpg" alt="Foto von Martina Verhey" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Martina Verhey</div>
+        <div class="kand-role">Ortsrat Bishausen</div>
+        <p class="kand-text">
+          Martina Verhey, 55 Jahre, Unternehmerin und seit 1996 in Bishausen ansässig. Ihr Fokus:
+          Erhalt unabhängiger Schulstandorte, Glasfaserausbau bis in jeden Haushalt
+          und gemeinsam mit den Bürgern entwickelte Konzepte für regenerative Energie.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wolfgang Pischke -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/WolfgangPischke-scaled.jpg" alt="Foto von Wolfgang Pischke" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Wolfgang Pischke</div>
+        <div class="kand-role">Gemeinderat</div>
+        <p class="kand-text">
+          Wolfgang Pischke engagiert sich für Ortsgestaltung, Vereinsleben und das aktive Miteinander der
+          Bürgerinnen und Bürger. Er setzt sich für altersgerechten Wohnraum und betreutes Wohnen ein und
+          fördert den Partnerschaftskreis Bondouflé weiter.
+        </p>
+      </div>
+    </div>
+
+    <!-- Marko Grube -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/MarcoGrube-scaled.jpg" alt="Foto von Marko Grube" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Marko Grube</div>
+        <div class="kand-role">Gemeinderat &amp; Ortsrat</div>
+        <p class="kand-text">
+          Marko Grube kandidiert erneut sowohl für den Gemeinde- als auch für den Ortsrat.
+          Besonders am Herzen liegen ihm Vereine, Sport, Freizeit und Erholung sowie
+          ein ganzjährig nutzbarer Sportplatz im Rodetal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Hubertus Nülsen -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/HubertusNuelsen-scaled.jpg" alt="Foto von Hubertus Nülsen" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Hubertus Nülsen</div>
+        <div class="kand-role">Gemeinderat</div>
+        <p class="kand-text">
+          Hubertus Nülsen setzt sich vor allem für Vereine, Erholung und Freizeit in der Gemeinde ein.
+          Er lädt alle Bürgerinnen und Bürger ein, einen Blick ins Wahlprogramm
+          zu werfen und selbst zu entscheiden, wer gut für Nörten-Hardenberg ist.
+        </p>
+      </div>
+    </div>
+
+    <!-- Ingo Tennstedt -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="https://fbl-nh.de/wp-content/uploads/2021/07/IngoTennstedt-scaled.jpg" alt="Foto von Ingo Tennstedt" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Ingo Tennstedt</div>
+        <div class="kand-role">Ortsrat Sudershausen &amp; Gemeinderat</div>
+        <p class="kand-text">
+          Ingo Tennstedt ist 58 Jahre alt, Fachkraft für Abwassertechnik und aktiv in der Freiwilligen Feuerwehr.
+          Er ist seit 2016 Mitglied des Ortsrats Sudershausen und seit 2019 im Bauausschuss. Schwerpunkte:
+          bezahlbarer Wohnraum, Feuerwehrgerätehaus-Neubau und umweltverträgliche Gewerbegebiete.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROGRAMM -->
+<section class="programm" id="programm">
+  <div style="text-align:center;">
+    <div class="section-label">Unsere Themen</div>
+    <h2 class="section-title">Was uns antreibt</h2>
+  </div>
+  <div class="themen-grid">
+    <div class="thema-card">
+      <div class="thema-icon">🏠</div>
+      <div class="thema-content">
+        <div class="thema-title">Wohnen &amp; Soziales</div>
+        <p class="thema-text">Bezahlbarer Wohnraum für Familien, Senioren und Menschen aller Einkommensstufen. Mehrgenerationenwohnen aktiv fördern.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">🌱</div>
+      <div class="thema-content">
+        <div class="thema-title">Klima &amp; Energie</div>
+        <p class="thema-text">Regenerative Energie mit Bürgerbeteiligung entwickeln. Klimaschutz und Naturerhalt zusammen denken.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">👧</div>
+      <div class="thema-content">
+        <div class="thema-title">Familie &amp; Bildung</div>
+        <p class="thema-text">Kindertagesstätten, Schulen und Jugendeinrichtungen ausbauen und nachhaltig erhalten.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">🚲</div>
+      <div class="thema-content">
+        <div class="thema-title">Mobilität &amp; Verkehr</div>
+        <p class="thema-text">Sichere Schulwege, Fahrradwege ausbauen, einen barrierefreien Bahnhof realisieren.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">🤝</div>
+      <div class="thema-content">
+        <div class="thema-title">Ehrenamt &amp; Vereine</div>
+        <p class="thema-text">Vereinsleben stärken, Ehrenamt anerkennen und das Miteinander in unserer Gemeinde fördern.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">🌊</div>
+      <div class="thema-content">
+        <div class="thema-title">Naherholung &amp; Natur</div>
+        <p class="thema-text">Das Leinetal als Naherholungsgebiet für alle Generationen erhalten und schützen.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">💻</div>
+      <div class="thema-content">
+        <div class="thema-title">Digitalisierung</div>
+        <p class="thema-text">Glasfaserausbau bis in jeden Haushalt — schnelles Internet für alle Bürgerinnen und Bürger.</p>
+      </div>
+    </div>
+    <div class="thema-card">
+      <div class="thema-icon">🏗️</div>
+      <div class="thema-content">
+        <div class="thema-title">Infrastruktur &amp; Gewerbe</div>
+        <p class="thema-text">Umweltverträgliche Gewerbegebiete, modernes Gebäudemanagement und Feuerwehrgerätehaus-Neubau.</p>
+      </div>
+    </div>
+  </div>
+  <div class="prog-cta">
+    <a href="https://fbl-nh.de/477-2/" target="_blank" class="btn-gold">Vollständiges Wahlprogramm lesen →</a>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt" id="kontakt">
+  <div class="kontakt-inner">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Sprechen Sie uns an</h2>
+    <div class="divider" style="margin: 0 auto 1.5rem;"></div>
+    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+      Haben Sie Fragen, Anregungen oder Vorschläge für unsere Gemeinde? Wir freuen uns
+      über Ihre Nachricht. Gemeinsam gestalten wir ein lebens- und liebenswertes
+      Nörten-Hardenberg.
+    </p>
+    <a href="mailto:info@fbl-nh.de" class="kontakt-email">
+      ✉ info@fbl-nh.de
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Freie Bürgerliste Nörten-Hardenberg (FBL) · #kompetent. Was sonst!</p>
+  <div class="footer-links">
+    <a href="https://fbl-nh.de/impressum/" target="_blank">Impressum</a>
+    <a href="https://fbl-nh.de/datenschutz/" target="_blank">Datenschutz</a>
+    <a href="https://fbl-nh.de/477-2/" target="_blank">Wahlprogramm</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+
+  // Close menu when a link is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-label', 'Menü öffnen');
+    });
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-label', 'Menü öffnen');
+    }
+  });
+</script>
+
+</body>
+</html>
