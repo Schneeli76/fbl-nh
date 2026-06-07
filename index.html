@@ -278,12 +278,11 @@
   }
 
   .intro-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 900px;
     margin: 0 auto;
-    align-items: start;
   }
 
   .intro-text p {
@@ -528,7 +527,6 @@
     .nav-links { gap: 1.4rem; }
     .hero { padding: 4rem 2rem; }
     section { padding: 4rem 2rem; }
-    .intro-grid { gap: 2rem; }
     .hero { padding: 4rem 2.5rem; }
     .kandidaten-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .themen-grid { grid-template-columns: repeat(2, 1fr); }
@@ -560,7 +558,7 @@
     .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
 
     /* Intro */
-    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+
 
     /* Kandidaten — 1 Spalte, kompaktere Karten */
     .kandidaten-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
@@ -743,7 +741,7 @@
     </div>
     <div class="intro-right">
       <div class="section-label">Unsere Schwerpunkte</div>
-      <ul class="values-list">
+      <ul class="values-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0.5rem 2rem; list-style: none; margin: 0;">
         <li>Bezahlbares Wohnen für örtliche Arbeitnehmer, Familien und Senioren</li>
         <li>Sicherung unserer Schulstandorte und Kindertagesstätten</li>
         <li>Naherholung im Leinetal und unseren Wäldern schützen</li>
