@@ -166,7 +166,8 @@
 
   .hero-inner {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
+    width: 100%;
   }
 
   .hero-badge {
@@ -185,7 +186,7 @@
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
     color: var(--white);
     font-weight: 700;
     line-height: 1.12;
@@ -270,12 +271,17 @@
 
   /* ── INTRO ── */
   .intro { background: var(--bg-section); }
+  @media (min-width: 1200px) {
+    .intro { padding: 5rem 4rem; }
+    .hero { padding: 6rem 4rem; }
+    .hero-inner { max-width: 1000px; }
+  }
 
   .intro-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1100px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    max-width: 1200px;
     margin: 0 auto;
     align-items: start;
   }
@@ -522,7 +528,8 @@
     .nav-links { gap: 1.4rem; }
     .hero { padding: 4rem 2rem; }
     section { padding: 4rem 2rem; }
-    .intro-grid { gap: 2.5rem; }
+    .intro-grid { gap: 2rem; }
+    .hero { padding: 4rem 2.5rem; }
     .kandidaten-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .themen-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -717,7 +724,7 @@
   <div class="intro-grid">
     <div class="intro-left">
       <div class="section-label">Über uns</div>
-      <h2 class="section-title">Demokratisch. Sachorientiert. Engagiert.</h2>
+      <h2 class="section-title">Demokratisch. Bürgernah. Engagiert.</h2>
       <div class="divider"></div>
       <div class="intro-text">
         <p>
