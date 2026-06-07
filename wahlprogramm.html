@@ -303,3 +303,37 @@
 
 </div>
 </div>
+
+<footer>
+  <p>© 2026 Freie Bürgerliste Nörten-Hardenberg (FBL) · #kompetent. Was sonst!</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="wahlprogramm.html">Wahlprogramm</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+  mobileLinks.forEach(link => link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-label', 'Menü öffnen');
+  }));
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
