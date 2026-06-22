@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fbl-nh.de/sitemap.xml
+Sitemap: http://fbl-noerten-hardenberg.de/sitemap.xml
