@@ -86,14 +86,22 @@
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    color: var(--gold-light);
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    white-space: nowrap;
     flex-shrink: 0;
+    height: 100%;
+    padding: 7px 0;
+  }
+  .nav-logo img {
+    height: 100%;
+    width: auto;
+    max-height: 54px;
+    background: #FFFFFF;
+    padding: 4px 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    display: block;
   }
 
   .nav-links {
@@ -626,7 +634,7 @@
   @media (max-width: 480px) {
     /* Navigation */
     nav { padding: 0 1rem; height: 56px; }
-    .nav-logo { font-size: 1rem; }
+    .nav-logo img { max-height: 42px; }
     .nav-mobile { top: 58px; }
 
     /* Hero */
@@ -705,7 +713,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">FBL Nörten-Hardenberg</a>
+  <a href="#" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Freie Bürgerliste Nörten-Hardenberg"></a>
 
   <!-- Desktop Links -->
   <ul class="nav-links">
@@ -1056,7 +1064,7 @@
       <div style="background: var(--dark); padding: 1.2rem 1.5rem; border-bottom: 2px solid var(--gold);">
         <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.3rem;">Wahlvorschlag</div>
         <div style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); font-weight: 700;">Gemeinderat</div>
-        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem;">FBL · Nörten-Hardenberg</div>
+        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem;">Gesamtliste FBL · Nörten-Hardenberg</div>
       </div>
       <div style="background: #FEF3DC; border-bottom: 1px solid #E8C84A; padding: 0.6rem 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
         <span style="font-size: 1rem;">🚧</span>
