@@ -26,9 +26,31 @@
     padding: 0 3rem; height: 68px; border-bottom: 2px solid var(--gold);
   }
   .nav-logo {
-    font-family: "Playfair Display", serif; font-size: 1.15rem;
-    color: var(--gold-light); font-weight: 700; text-decoration: none;
-    white-space: nowrap; flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    height: 100%;
+    padding: 7px 0;
+  }
+  .nav-logo img {
+    height: 100%;
+    width: auto;
+    max-height: 54px;
+    background: #FFFFFF;
+    padding: 4px 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    display: block;
+  }
+  .nav-logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-left: 14px;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -146,6 +168,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
+    .nav-logo-text { display: none; }
     nav { padding: 0 1.2rem; height: 60px; }
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
@@ -155,7 +178,7 @@
   }
   @media (max-width: 480px) {
     nav { padding: 0 1rem; height: 56px; }
-    .nav-logo { font-size: 1rem; }
+    .nav-logo img { max-height: 42px; }
     .nav-mobile { top: 58px; }
     .page-header { padding: 2.5rem 1rem 2rem; }
     .content-wrap { padding: 2rem 1rem; }
@@ -171,7 +194,7 @@
 <title>Wahlprogramm FBL 2021 | FBL Nörten-Hardenberg</title>
 <meta name="description" content="Wahlprogramm der Freien Bürgerliste Nörten-Hardenberg zur Kommunalwahl 2021.">
 <nav>
-  <a href="index.html" class="nav-logo">FBL Nörten-Hardenberg</a>
+  <a href="index.html" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Logo"><span class="nav-logo-text">Freie Bürgerliste Nörten-Hardenberg</span></a>
   <ul class="nav-links">
     <li><a href="index.html#kandidaten">Kandidaten</a></li>
     <li><a href="index.html#wahllisten">Listen</a></li>

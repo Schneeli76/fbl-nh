@@ -103,6 +103,15 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
     display: block;
   }
+  .nav-logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-left: 14px;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
 
   .nav-links {
     display: flex;
@@ -578,6 +587,7 @@
 
   /* ── TABLET SCHMAL / GROSSES SMARTPHONE (bis 768px) ── */
   @media (max-width: 768px) {
+    .nav-logo-text { display: none; }
     /* Navigation */
     nav { padding: 0 1.2rem; height: 60px; }
     .nav-links { display: none; }
@@ -713,7 +723,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Freie Bürgerliste Nörten-Hardenberg"></a>
+  <a href="#" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Logo"><span class="nav-logo-text">Freie Bürgerliste Nörten-Hardenberg</span></a>
 
   <!-- Desktop Links -->
   <ul class="nav-links">
@@ -836,9 +846,9 @@
       </div>
       <div class="kand-body">
         <div class="kand-name">Hartmut Ehmen</div>
-        <div class="kand-role">Ortsbürgermeister Elvese & Gemeinderat</div>
+        <div class="kand-role">Fraktionsvorsitzender seit 2019 · Gemeinderat</div>
         <p class="kand-text">
-          Hartmut Ehmen ist 65 Jahre alt, technischer Betriebsinspektor im Ruhestand und wohnhaft in Elvese. Er ist seit 2016 Mitglied des Gemeinderats Nörten-Hardenberg und Ortsbürgermeister von Elvese. Für ihn sind Klimaschutz, bezahlbares Wohnen und die Stabilität unserer Gemeinde zentrale Themen.
+          Technischer Betriebsinspektor im Ruhestand und wohnhaft in Elvese. Er ist seit 2016 Mitglied des Gemeinderats Nörten-Hardenberg und war 10 Jahre Ortsbürgermeister von Elvese. Für ihn sind <b>Klimaschutz, erneuerbare Energie, Wirtschaftsförderung, bezahlbares Wohnen</b> und die Stabilität unserer Gemeinde zentrale Themen.
         </p>
       </div>
     </div>
@@ -909,6 +919,23 @@
       </div>
     </div>
 
+    <!-- Carina Wunderlich -->
+    <div class="kand-card">
+      <div class="kand-img-wrap">
+        <img src="Bilder/CarinaWunderlich-scaled.jpg" alt="Foto von Carina Wunderlich" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+        <div class="kand-initials" style="display:none;">CW</div>
+      </div>
+      <div class="kand-body">
+        <div class="kand-name">Carina Wunderlich</div>
+        <div class="kand-role">Ortsrat Nörten-Hardenberg & Gemeinderat</div>
+        <p class="kand-text">
+          Carina Wunderlich ist selbstständige Ergotherapeutin aus Leidenschaft und kandidiert erneut für den Ortsrat. Ihr Motto: „Es ist schnell geschimpft, aber ohne Einsatz eben nicht schnell gemacht!" Altersgerechtes Wohnen und Mehrgenerationeneinrichtungen liegen ihr sehr am Herzen.
+        </p>
+      </div>
+    </div>
+
     <!-- Leon Hänel -->
     <div class="kand-card">
       <div class="kand-img-wrap">
@@ -933,23 +960,6 @@
         <div class="kand-role">Gemeinderat & Ortsrat</div>
         <p class="kand-text">
           Profil folgt in Kürze.
-        </p>
-      </div>
-    </div>
-
-    <!-- Carina Wunderlich -->
-    <div class="kand-card">
-      <div class="kand-img-wrap">
-        <img src="Bilder/CarinaWunderlich-scaled.jpg" alt="Foto von Carina Wunderlich" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-             style="width:100%;height:100%;object-fit:cover;object-position:top center;">
-        <div class="kand-initials" style="display:none;">CW</div>
-      </div>
-      <div class="kand-body">
-        <div class="kand-name">Carina Wunderlich</div>
-        <div class="kand-role">Ortsrat Nörten-Hardenberg & Gemeinderat</div>
-        <p class="kand-text">
-          Carina Wunderlich ist selbstständige Ergotherapeutin aus Leidenschaft und kandidiert erneut für den Ortsrat. Ihr Motto: „Es ist schnell geschimpft, aber ohne Einsatz eben nicht schnell gemacht!" Altersgerechtes Wohnen und Mehrgenerationeneinrichtungen liegen ihr sehr am Herzen.
         </p>
       </div>
     </div>
@@ -1091,7 +1101,7 @@
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">3</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Scholz, Dr. Martin</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Göttinger Str. 61</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
@@ -1105,35 +1115,35 @@
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">5</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Leonhardt, Jessica</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Eichendorffstr. 6</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">6</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Verhey, Martina</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Klappenbergweg 23</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); ">
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">7</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
-                <div style="font-weight: 600; color: var(--text);">Hänel, Leon</div>
-                
+                <div style="font-weight: 600; color: var(--text);">Wunderlich, Carina</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Marienstein 20</div>
               </td>
             </tr>
-            <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
+            <tr style="border-bottom: 1px solid var(--border); background: var(--bg); ">
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">8</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
-                <div style="font-weight: 600; color: var(--text);">Büchler, Julia</div>
-                
+                <div style="font-weight: 600; color: var(--text);">Hänel, Leon</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Hardenbergstr. 8</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); ">
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">9</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
-                <div style="font-weight: 600; color: var(--text);">Wunderlich, Carina</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted);">Marienstein 20</div>
+                <div style="font-weight: 600; color: var(--text);">Büchler, Julia</div>
+                
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
@@ -1196,14 +1206,14 @@
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">4</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Nülsen, Christian</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Lange Str. 29</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); ">
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">5</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Leonhardt, Jessica</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Eichendorffstr. 6</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); background: var(--bg);">
@@ -1224,7 +1234,7 @@
               <td style="padding: 0.7rem 1.5rem; color: var(--gold); font-weight: 700; width: 2rem;">8</td>
               <td style="padding: 0.7rem 0.5rem 0.7rem 0;">
                 <div style="font-weight: 600; color: var(--text);">Verhey, Martina</div>
-                
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Klappenbergweg 23</div>
               </td>
             </tr>
             <tr style="border-bottom: 1px solid var(--border); ">
