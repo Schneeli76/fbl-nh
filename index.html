@@ -240,15 +240,13 @@
     max-width: 1240px;
     display: grid;
     grid-template-columns: 0.92fr 1.08fr;
-    gap: 2rem;
-    align-items: center;
+    gap: 1.5rem 2.5rem;
+    align-items: start;
   }
 
   .hero-media {
     position: relative;
-    transform: translateY(-30px);
-    margin-bottom: -90px;
-    z-index: 2;
+    align-self: start;
   }
 
   .hero-media img {
@@ -257,9 +255,12 @@
     height: 100%;
     object-fit: cover;
     aspect-ratio: 4 / 3;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 15%, black 40%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 15%, black 40%);
-    filter: drop-shadow(0 30px 70px rgba(0,0,0,0.28));
+    border-radius: 10px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.45), 0 25px 70px rgba(0,0,0,0.3);
+  }
+
+  .hero-fullrow {
+    grid-column: 1 / -1;
   }
 
   .hero-badge {
@@ -613,18 +614,10 @@
     .hero { padding: 4rem 2.5rem; }
     .hero-inner.has-media {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .hero-media {
-      transform: none;
-      margin-bottom: 0;
+      gap: 2rem;
     }
     .hero-media img {
       aspect-ratio: 16 / 9;
-      -webkit-mask-image: none;
-      mask-image: none;
-      border-radius: 8px;
-      filter: none;
       box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     }
     .kandidaten-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
@@ -798,16 +791,18 @@
         <span>Nörten-Hardenberg.</span>
       </h1>
       <p class="hero-tagline">#kompetent. Was sonst!</p>
-      <p class="hero-body">
+    </div>
+    <div class="hero-media">
+      <img src="Bilder/NH_von_oben.jpg" alt="Luftaufnahme von Nörten-Hardenberg mit Kirche und Fachwerkhäusern" loading="lazy">
+    </div>
+    <div class="hero-fullrow">
+      <p class="hero-body" style="max-width: none;">
         Über Parteigrenzen hinweg bitten wir Sie, liebe Bürgerinnen und Bürger,
         um Ihre Stimme für eine lebenswerte Zukunft unserer Gemeinde und ihrer Ortsteile.
         Unabhängig von Parteiprogrammen gestalten wir — orientiert an den
         Bedürfnissen und Möglichkeiten der Menschen vor Ort — sachlich und bürgernah mit.
       </p>
       <p class="hero-sig">Ihre Kandidatinnen und Kandidaten der FBL Nörten-Hardenberg</p>
-    </div>
-    <div class="hero-media">
-      <img src="Bilder/NH_von_oben.jpg" alt="Luftaufnahme von Nörten-Hardenberg mit Kirche und Fachwerkhäusern" loading="lazy">
     </div>
   </div>
 </section>
