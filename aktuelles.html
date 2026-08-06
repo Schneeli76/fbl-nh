@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aktuelles | FBL Nörten-Hardenberg – Freie Bürgerliste</title>
+  <meta name="description" content="Aktuelle Nachrichten der Freien Bürgerliste Nörten-Hardenberg zur Kommunalwahl am 13. September 2026.">
+  <meta name="keywords" content="FBL, Freie Bürgerliste, Nörten-Hardenberg, News, Aktuelles, Wahlplakate, Kommunalwahl 2026, Elvese, Angerstein, Lütgenrode">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -188,11 +189,136 @@
     footer a { margin: 0; }
   }
   @media (hover: none) { }
+
+  /* ── NEWS ── */
+  .news-hero {
+    background: var(--dark);
+    padding: 3rem 3rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .news-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(212,175,90,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+  .news-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+  .news-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.5rem 1.2rem; border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .news-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--white); line-height: 1.1;
+    font-weight: 700;
+  }
+  .news-hero h1 .accent { color: var(--gold-light); }
+  .news-hero .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem; margin-top: 1rem;
+    max-width: 640px; line-height: 1.6;
+  }
+
+  .news-section { padding: 4rem 3rem; background: var(--bg); }
+  .news-wrap { max-width: 1100px; margin: 0 auto; }
+
+  .news-article {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(26,32,53,0.06);
+  }
+  .news-article-header {
+    padding: 2rem 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .news-date {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--gold); text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 0.8rem;
+  }
+  .news-article-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem; color: var(--dark);
+    font-weight: 700; line-height: 1.2;
+  }
+  .news-body { padding: 2rem 2.5rem; }
+  .news-body p { color: var(--text); line-height: 1.75; margin-bottom: 1.2rem; font-size: 1.02rem; }
+  .news-body p:last-child { margin-bottom: 0; }
+  .news-body strong { color: var(--dark); }
+
+  .news-orte {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin: 1.5rem 0;
+  }
+  .news-ort-tag {
+    background: var(--gold-pale);
+    color: #7a5800;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 0.4rem 1rem; border-radius: 20px;
+    border: 1px solid rgba(184,150,46,0.3);
+  }
+
+  .news-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0 2.5rem 2.5rem;
+  }
+  .news-photo {
+    border-radius: 6px; overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-section);
+    position: relative;
+  }
+  .news-photo img {
+    width: 100%; height: 340px;
+    object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+  }
+  .news-photo:hover img { transform: scale(1.05); }
+  .news-photo-caption {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem; color: var(--text-muted);
+    font-weight: 600; text-align: center;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+
+  .news-cta {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2rem 2.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .news-cta p { margin: 0; color: var(--dark); font-size: 1rem; }
+  .news-cta strong { color: var(--dark); }
+
+  @media (max-width: 768px) {
+    .news-hero { padding: 2rem 1.5rem 2.5rem; }
+    .news-section { padding: 2.5rem 1.2rem; }
+    .news-article-header, .news-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .news-gallery { grid-template-columns: 1fr; padding: 0 1.5rem 1.5rem; }
+    .news-photo img { height: 400px; }
+    .news-cta { margin: 2rem 1.5rem; }
+  }
+
 </style>
 </head>
 <body>
-<title>Datenschutz | FBL Nörten-Hardenberg</title>
-<meta name="description" content="Datenschutzerklärung der Freien Bürgerliste Nörten-Hardenberg gemäß DSGVO.">
+
 <nav>
   <a href="index.html" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Logo"><span class="nav-logo-text">Freie Bürgerliste Nörten-Hardenberg</span></a>
   <ul class="nav-links">
@@ -200,13 +326,14 @@
     <li><a href="index.html#wahllisten">Listen</a></li>
     <li><a href="index.html#programm">Programm</a></li>
     <li><a href="index.html#kontakt">Kontakt</a></li>
-    <li><a href="aktuelles.html">Aktuelles</a></li>
-    <li><a href="wahlprogramm.html" >Wahlprogramm</a></li>
+    <li><a href="aktuelles.html" class="active">Aktuelles</a></li>
+    <li><a href="wahlprogramm.html">Wahlprogramm</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <ul class="nav-mobile" id="navMobile">
   <li><a href="index.html#kandidaten" class="nav-mobile-link">Kandidaten</a></li>
   <li><a href="index.html#wahllisten" class="nav-mobile-link">Listen</a></li>
@@ -216,92 +343,81 @@
   <li><a href="wahlprogramm.html" class="nav-mobile-link">Wahlprogramm</a></li>
 </ul>
 
-<div class="page-header">
-  <div class="page-header-inner">
-    <div class="page-badge">Rechtliches</div>
-    <h1>Datenschutz<span>erklärung</span></h1>
-    <p class="page-subtitle">Gemäß DSGVO · Stand: Juni 2026</p>
+<!-- HERO -->
+<section class="news-hero">
+  <div class="news-hero-inner">
+    <div class="news-badge">Aktuelles · Kommunalwahl 2026</div>
+    <h1>Unsere Plakate sind <span class="accent">im Ort angekommen.</span></h1>
+    <p class="subtitle">
+      Der Wahlkampf der Freien Bürgerliste nimmt Fahrt auf: In Nörten-Hardenberg
+      und den Ortsteilen hängen und stehen jetzt unsere Plakate.
+    </p>
   </div>
-</div>
+</section>
 
-<div class="content-wrap">
+<!-- NEWS -->
+<section class="news-section">
+  <div class="news-wrap">
 
-  <div class="warn-box">
-    <p>Diese Datenschutzerklärung gilt für die Websites <strong>fbl-nh.de</strong> und
-    <strong>fbl-noerten-hardenberg.de</strong>. Die Seiten setzen keine Tracking-Cookies
-    und keine Analyse-Tools ein.</p>
+    <article class="news-article">
+      <div class="news-article-header">
+        <div class="news-date">📌 06. August 2026</div>
+        <h2>Wir sind sichtbar — FBL-Plakate in der ganzen Gemeinde</h2>
+      </div>
+
+      <div class="news-body">
+        <p>
+          Es ist so weit: Die Plakate der <strong>Freien Bürgerliste Nörten-Hardenberg</strong>
+          hängen und stehen jetzt in unserer Gemeinde. Unter dem Motto
+          <strong>„Transparent. Ehrlich. Für Alle!"</strong> und mit unserem Claim
+          <strong>#kompetent</strong> werben wir für die Kommunalwahl am 13. September 2026.
+        </p>
+        <p>
+          Ob am Bahnhof, in der Altstadt an der Apotheke oder mitten im Dorf — überall zeigen
+          wir Gesicht für ein lebenswertes Nörten-Hardenberg. Unsere Plakate finden Sie
+          in folgenden Orten:
+        </p>
+
+        <div class="news-orte">
+          <span class="news-ort-tag">📍 Nörten-Hardenberg</span>
+          <span class="news-ort-tag">📍 Lütgenrode</span>
+          <span class="news-ort-tag">📍 Elvese</span>
+          <span class="news-ort-tag">📍 Angerstein</span>
+        </div>
+
+        <p>
+          Ein herzliches Dankeschön an alle Helferinnen und Helfer, die beim Aufstellen und
+          Aufhängen mit angepackt haben! Ohne dieses ehrenamtliche Engagement wäre unser
+          Wahlkampf nicht möglich.
+        </p>
+      </div>
+
+      <div class="news-gallery">
+        <div class="news-photo">
+          <img src="Bilder/Am_Bahnhof.jpeg" alt="FBL-Plakat am Bahnhof Nörten-Hardenberg" loading="lazy">
+          <div class="news-photo-caption">Am Bahnhof · Zum Leine-Heide-Radweg</div>
+        </div>
+        <div class="news-photo">
+          <img src="Bilder/An_der_Apotheke.jpeg" alt="FBL-Plakat an der Apotheke in der Altstadt" loading="lazy">
+          <div class="news-photo-caption">An der Apotheke · Altstadt</div>
+        </div>
+        <div class="news-photo">
+          <img src="Bilder/Am_Kirchhof2_.jpeg" alt="FBL-Plakat Am Kirchhof" loading="lazy">
+          <div class="news-photo-caption">Am Kirchhof</div>
+        </div>
+      </div>
+
+      <div class="news-cta">
+        <p>
+          <strong>Am 13. September FBL wählen!</strong> &nbsp;Über Parteigrenzen hinweg —
+          bürgernah, sachlich und engagiert für unsere Gemeinde und ihre Ortsteile.
+        </p>
+      </div>
+    </article>
+
   </div>
+</section>
 
-  <h2 class="section-title">§ 1 Verantwortlicher und Datenschutzbeauftragter</h2>
-  <p><strong>(1) Verantwortlicher</strong> für die Verarbeitung personenbezogener Daten
-  gemäß Art. 4 Ziff. 7 EU-DSGVO ist:</p>
-  <div class="info-box">
-    <p><strong>Freie Bürgerliste Nörten-Hardenberg (FBL)</strong></p>
-    <p>vertreten durch Dr. Christian Eberl</p>
-    <p>Am Habichtsfang 51 · 37176 Nörten-Hardenberg</p>
-    <p>E-Mail: <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a></p>
-  </div>
-  <p><strong>(2) Datenschutzbeauftragter:</strong> Christoph Schneeberger —
-  erreichbar unter <a href="mailto:Christoph.Schneeberger@gmx.de">Christoph.Schneeberger@gmx.de</a>
-  oder Tel. 01635435678.</p>
-
-  <h2 class="section-title">§ 2 Erhebung personenbezogener Daten</h2>
-  <p><strong>(1)</strong> Beim Besuch unserer Website erheben wir — wenn Sie uns nicht
-  anderweitig Informationen übermitteln — nur die personenbezogenen Daten, die Ihr Browser
-  an unseren Server übermittelt. Diese Informationen werden temporär in einem sogenannten
-  Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis
-  zur automatisierten Löschung gespeichert:</p>
-  <ul>
-    <li>IP-Adresse</li>
-    <li>Datum und Uhrzeit der Anfrage</li>
-    <li>Zeitzonendifferenz zur koordinierten Weltzeit (UTC)</li>
-    <li>Browseranfrage (Methode, angefragte Ressource, Protokollversion)</li>
-    <li>Zugriffsstatus / HTTP-Statuscode</li>
-    <li>Übertragene Datenmenge</li>
-    <li>Zuvor besuchte Seite (Referrer), sofern vom Browser übermittelt</li>
-    <li>Browserkennung (Name, Version, Betriebssystem)</li>
-  </ul>
-  <p>Diese Daten werden erhoben, um Ihnen unsere Website anzuzeigen sowie Stabilität
-  und Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 Buchst. f DSGVO.</p>
-
-  <h2 class="section-title">§ 3 Cookies</h2>
-  <p>Diese Website setzt <strong>keine Cookies</strong> ein. Es werden keine Tracking-,
-  Analyse- oder Marketingdienste Dritter verwendet. Es ist kein Cookie-Consent erforderlich.</p>
-
-  <h2 class="section-title">§ 4 Betroffenenrechte</h2>
-  <p><strong>(1)</strong> Sie haben gegenüber uns folgende Rechte hinsichtlich der
-  Sie betreffenden personenbezogenen Daten:</p>
-  <ul>
-    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
-    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
-    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
-    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
-  </ul>
-  <p><strong>(2)</strong> Sie haben zudem das Recht, Ihre einmal erteilte Einwilligung
-  jederzeit zu widerrufen (Art. 7 Abs. 3 DSGVO). Ihren Widerruf richten Sie bitte an:
-  <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a>.</p>
-  <p>Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren
-  (Art. 77 DSGVO). Die zuständige Aufsichtsbehörde in Niedersachsen ist der
-  <a href="https://www.lfd.niedersachsen.de" target="_blank" rel="noopener">
-  Landesbeauftragte für den Datenschutz Niedersachsen</a>.</p>
-
-  <h2 class="section-title">§ 5 Widerspruchsrecht</h2>
-  <p><strong>(1)</strong> Soweit wir die Verarbeitung Ihrer personenbezogenen Daten auf
-  berechtigte Interessen stützen (Art. 6 Abs. 1 Buchst. f DSGVO), können Sie Widerspruch
-  gegen die Verarbeitung einlegen. Bei Ausübung eines solchen Widerspruchs bitten wir um
-  Darlegung der Gründe.</p>
-  <p><strong>(2)</strong> Sie können der Verarbeitung Ihrer personenbezogenen Daten für
-  Zwecke der Werbung und Datenanalyse jederzeit widersprechen.</p>
-  <p><strong>(3)</strong> Ihren Widerspruch richten Sie bitte an den Verantwortlichen:
-  <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a>.</p>
-
-  <h2 class="section-title">§ 6 Aktualität dieser Datenschutzerklärung</h2>
-  <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong>Juni 2026</strong>.
-  Durch die Weiterentwicklung unserer Website kann es notwendig werden, diese Erklärung
-  zu aktualisieren. Die jeweils aktuelle Version finden Sie stets auf dieser Seite.</p>
-
-</div>
 <footer>
   <p>© 2026 Freie Bürgerliste Nörten-Hardenberg (FBL) · #kompetent. Was sonst!</p>
   <div class="footer-links">
@@ -309,7 +425,9 @@
     <a href="datenschutz.html">Datenschutz</a>
     <a href="wahlprogramm.html">Wahlprogramm</a>
   </div>
-</footer><script>
+</footer>
+
+<script>
   const toggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('navMobile');
   const mobileLinks = document.querySelectorAll('.nav-mobile-link');
@@ -330,5 +448,6 @@
     }
   });
 </script>
+
 </body>
 </html>

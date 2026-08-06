@@ -6,12 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<title>Impressum | FBL Nörten-Hardenberg</title>
-<meta name="description" content="Impressum der Freien Bürgerliste Nörten-Hardenberg (FBL).">
-<!-- Lokal gehostete Schriften – keine Verbindung zu Google -->
-<link rel="preload" href="fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -195,6 +191,8 @@
 </style>
 </head>
 <body>
+<title>Impressum | FBL Nörten-Hardenberg</title>
+<meta name="description" content="Impressum der Freien Bürgerliste Nörten-Hardenberg (FBL).">
 <nav>
   <a href="index.html" class="nav-logo"><img src="Bilder/fbl_logo.png" alt="FBL Logo"><span class="nav-logo-text">Freie Bürgerliste Nörten-Hardenberg</span></a>
   <ul class="nav-links">
@@ -202,6 +200,7 @@
     <li><a href="index.html#wahllisten">Listen</a></li>
     <li><a href="index.html#programm">Programm</a></li>
     <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="aktuelles.html">Aktuelles</a></li>
     <li><a href="wahlprogramm.html" >Wahlprogramm</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
@@ -213,6 +212,7 @@
   <li><a href="index.html#wahllisten" class="nav-mobile-link">Listen</a></li>
   <li><a href="index.html#programm" class="nav-mobile-link">Programm</a></li>
   <li><a href="index.html#kontakt" class="nav-mobile-link">Kontakt</a></li>
+  <li><a href="aktuelles.html" class="nav-mobile-link">Aktuelles</a></li>
   <li><a href="wahlprogramm.html" class="nav-mobile-link">Wahlprogramm</a></li>
 </ul>
 
@@ -220,31 +220,36 @@
   <div class="page-header-inner">
     <div class="page-badge">Rechtliches</div>
     <h1>Impressum</h1>
-    <p class="page-subtitle">Angaben gemäß § 5 DDG</p>
+    <p class="page-subtitle">Angaben gemäß § 5 TMG</p>
   </div>
 </div>
 
 <div class="content-wrap">
 
-  <h2 class="section-title">Anbieter und Verantwortlicher</h2>
+  <h2 class="section-title">Verantwortlich</h2>
   <div class="info-box">
     <p><strong>Freie Bürgerliste Nörten-Hardenberg (FBL)</strong></p>
     <p>vertreten durch Dr. Christian Eberl</p>
-    <p>Am Habichtsfang 51b<br>37176 Nörten-Hardenberg</p>
-    <p>E-Mail: <a href="mailto:dr.christian.eberl@fbl-nh.de">dr.christian.eberl@fbl-nh.de</a></p>
-    <p>Telefon: auf Anfrage per E-Mail</p>
+    <p>Am Habichtsfang 51<br>37176 Nörten-Hardenberg</p>
+    <p>Telefon: bitte per E-Mail anfragen</p>
+    <p>E-Mail: <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a></p>
   </div>
-  <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong>
-  Dr. Christian Eberl, Anschrift wie oben.</p>
+
+  <h2 class="section-title">Inhaltlich Verantwortlicher</h2>
+  <div class="info-box">
+    <p><strong>Dr. Christian Eberl</strong></p>
+    <p>Am Habichtsfang 51<br>37176 Nörten-Hardenberg</p>
+    <p>E-Mail: <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a></p>
+  </div>
 
   <h2 class="section-title">Urheberrecht</h2>
   <p>Die einzelnen Elemente sowie die Inhalte dieser Website sind urheberrechtlich geschützt.
   Dies gilt auch für die redaktionellen Beiträge sowie deren Auswahl und Zusammenstellung.
-  Eine Vervielfältigung oder Weiterverwendung ist ausschließlich für private,
-  nicht-kommerzielle Zwecke gestattet.</p>
-  <p>Jede darüber hinausgehende, insbesondere kommerzielle Nutzung bedarf unserer
-  vorherigen schriftlichen Zustimmung. Bei Anfragen zum Bildmaterial wenden Sie sich bitte an
-  <a href="mailto:dr.christian.eberl@fbl-nh.de">dr.christian.eberl@fbl-nh.de</a>.</p>
+  Weiterverwendung und Vervielfältigung sind nur zu privaten Zwecken und für die
+  Freie Bürgerliste Nörten-Hardenberg gestattet.</p>
+  <p>Bei kommerzieller Verwertung gelten die gesetzlichen Copyright-Bestimmungen.
+  Bei Anfragen zum Bildmaterial wenden Sie sich bitte an
+  <a href="mailto:ceberl@fbl-nh.de">ceberl@fbl-nh.de</a>.</p>
 
   <h2 class="section-title">Haftungsausschluss</h2>
   <p>Die auf diesen Seiten veröffentlichten Inhalte werden sorgfältig recherchiert und geprüft.
@@ -290,9 +295,5 @@
     }
   });
 </script>
-<!-- Reichweitenmessung: GoatCounter (cookiefrei, anonym) -->
-<script data-goatcounter="https://fbl-nh.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
 </body>
 </html>
