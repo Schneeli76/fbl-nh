@@ -315,6 +315,12 @@
     .news-cta { margin: 2rem 1.5rem; }
   }
 
+
+  @media (max-width: 640px) {
+    .news-body > div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -358,6 +364,63 @@
 <!-- NEWS -->
 <section class="news-section">
   <div class="news-wrap">
+
+    <article class="news-article">
+      <div class="news-article-header">
+        <div class="news-date">📅 Termine · 17. August 2026</div>
+        <h2>Kommen Sie vorbei — unser Infostand vor Ort</h2>
+      </div>
+
+      <div class="news-body">
+        <p>
+          Sie haben Fragen, Anregungen oder möchten einfach mal mit uns ins Gespräch kommen?
+          Wir sind mit unserem Infostand für Sie da — kommen Sie gerne vorbei!
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.8rem 0;">
+
+          <div style="background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 4px; padding: 1.5rem;">
+            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;">Termin 1</div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--dark); font-weight: 700; line-height: 1.3; margin-bottom: 0.4rem;">
+              Samstag, 5. September
+            </div>
+            <div style="font-size: 1.05rem; color: var(--dark); font-weight: 600; margin-bottom: 0.9rem;">ab 09:00 Uhr</div>
+            <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              📍 <strong style="color: var(--text);">EDEKA Nörten-Hardenberg</strong><br>
+              Klosteracker 1<br>
+              37176 Nörten-Hardenberg
+            </div>
+          </div>
+
+          <div style="background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 4px; padding: 1.5rem;">
+            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;">Termin 2</div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--dark); font-weight: 700; line-height: 1.3; margin-bottom: 0.4rem;">
+              Freitag, 11. September
+            </div>
+            <div style="font-size: 1.05rem; color: var(--dark); font-weight: 600; margin-bottom: 0.9rem;">ab 16:00 Uhr</div>
+            <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              📍 <strong style="color: var(--text);">EDEKA Nörten-Hardenberg</strong><br>
+              Klosteracker 1<br>
+              37176 Nörten-Hardenberg
+            </div>
+          </div>
+
+        </div>
+
+        <p>
+          Wir freuen uns auf den persönlichen Austausch mit Ihnen — über das, was in unserer
+          Gemeinde gut läuft, und über das, was sich ändern sollte. Ihre Anliegen sind unser
+          Auftrag.
+        </p>
+      </div>
+
+      <div class="news-cta">
+        <p>
+          <strong>Zuhören. Verstehen. Handeln.</strong> &nbsp;Sprechen Sie uns an — wir sind
+          für Sie da.
+        </p>
+      </div>
+    </article>
 
     <article class="news-article">
       <div class="news-article-header">
